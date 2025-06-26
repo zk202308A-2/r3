@@ -3,11 +3,12 @@ import {
     RouterProvider,
 } from "react-router";
 import AboutPage from "../pages/aboutPage";
+import MainPage from "../pages/mainPage";
 
 const router = createBrowserRouter([
 {
     path: "/",
-    element: <div>Hello World</div>,
+    Component: MainPage
 },
 {
     path: "/about",
