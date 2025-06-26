@@ -2,17 +2,23 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router";
-import AboutPage from "../pages/aboutPage";
-import MainPage from "../pages/mainPage";
+
+import { lazy, Suspense } from "react";
+
+const Loading = () => <div>Loading....</div>
+
+const Main = lazy(() => import("../pages/mainPage"))
+const About = lazy(() => import("../pages/aboutPage"))
 
 const router = createBrowserRouter([
 {
     path: "/",
-    Component: MainPage
+    element: <Suspense fallback={<Loading/>}><Main/></Suspense>,
+
 },
 {
     path: "/about",
-    Component: AboutPage
+    element: <Suspense fallback={<Loading/>}><About/></Suspense>,
 }
 ]);
 
