@@ -1,10 +1,13 @@
+import BasicLayout from "../layouts/basicLayout";
 
 
 function MainPage() {
     return ( 
-        <div>
-            <h1>Main Page</h1>
-        </div>
+        <BasicLayout>
+            <div>
+                <h1>Main Page</h1>
+            </div>
+        </BasicLayout>
      );
 }
 
