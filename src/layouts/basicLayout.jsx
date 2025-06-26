@@ -5,9 +5,8 @@ function BasicLayout({children}) {
     <div className="container mx-auto flex justify-between items-center">
       <div className="text-white text-xl font-bold">로고</div>
       <div className="space-x-6 hidden md:flex">
-        <a href="#" className="text-white">로그인</a>
-        <a href="#" className="text-white">메인</a>
-        <a href="#" className="text-white">상품</a>
+        <a href="/" className="text-white">Main</a>
+        <a href="/about" className="text-white">About</a>
       </div>
       
       <div className="md:hidden">
@@ -20,9 +19,8 @@ function BasicLayout({children}) {
     </div>
     
     <div id="mobile-menu" className="hidden md:hidden bg-gray-800 p-4">
-      <a href="#" className="block text-white py-2">로그인</a>
-      <a href="#" className="block text-white py-2">메인</a>
-      <a href="#" className="block text-white py-2">상품</a>
+      <a href="/" className="block text-white py-2">Main</a>
+      <a href="/about" className="block text-white py-2">About</a>
     </div>
   </nav>
 
