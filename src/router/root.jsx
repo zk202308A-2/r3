@@ -2,6 +2,7 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router";
+import AboutPage from "../pages/aboutPage";
 
 const router = createBrowserRouter([
 {
