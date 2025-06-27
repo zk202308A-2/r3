@@ -5,6 +5,7 @@ import TodoIndexPage from "../pages/todo/todoIndexPag";
 const Loading = () => <div>Loading....</div>
 
 const TodoList =lazy(() => import("../pages/todo/todoListPage"))
+const TodoRead =lazy(() => import("../pages/todo/todoReadPage"))
 
 function todoRouter() {
     return ({
@@ -14,6 +15,10 @@ function todoRouter() {
             {
                 path: "list",
                 element: <Suspense fallback={<Loading/>}><TodoList/></Suspense>
+            },
+            {
+                path: "read/:tno",
+                element: <Suspense fallback={<Loading/>}><TodoRead/></Suspense>
             }
         ]
     })
