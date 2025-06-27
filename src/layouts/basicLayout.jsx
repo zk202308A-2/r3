@@ -9,6 +9,7 @@ function BasicLayout({children}) {
       <div className="space-x-6 hidden md:flex">
         <NavLink to="/" className="text-white">Main</NavLink>
         <NavLink to="/about" className="text-white">About</NavLink>
+        <NavLink to="/todo" className="text-white">Todo</NavLink>
       </div>
       
       <div className="md:hidden">
@@ -23,6 +24,7 @@ function BasicLayout({children}) {
     <div id="mobile-menu" className="hidden md:hidden bg-gray-800 p-4">
       <NavLink to="/" className="block text-white py-2">Main</NavLink>
       <NavLink to="/about" className="block text-white py-2">About</NavLink>
+      <NavLink to="/todo" className="block text-white py-2">Todo</NavLink>
     </div>
   </nav>
 
