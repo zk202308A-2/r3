@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import { getTodoList } from "../../apis/todoApi";
+import CountContext from "../../store/countContext";
 
 
 function TodoListContainer() {
+
+    const {count, change} = useContext(CountContext)
 
     const [searchParam, setSearchParam] = useSearchParams()
 
@@ -33,6 +36,8 @@ function TodoListContainer() {
     return ( 
         <div>
             <div>Todo List Container</div>
+
+            <div onClick={change}>COUNT {count}</div>
 
             {fetching && <div className="bg-amber-600 h-10 ">Todo List Loading..............</div>}
 

@@ -7,6 +7,7 @@ const Loading = () => <div>Loading....</div>
 
 const TodoList =lazy(() => import("../pages/todo/todoListPage"))
 const TodoRead =lazy(() => import("../pages/todo/todoReadPage"))
+const TodoAdd =lazy(() => import("../pages/todo/todoAddPage"))
 
 function todoRouter() {
     return ({
@@ -24,6 +25,10 @@ function todoRouter() {
             {
                 path:"",
                 element: <Navigate to={'/todo/list'}></Navigate>
+            },
+            {
+                path: "add",
+                element: <Suspense fallback={<Loading/>}><TodoAdd/></Suspense>
             }
         ]
     })
