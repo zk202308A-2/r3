@@ -8,7 +8,7 @@ function TestContextWrapper({children}) {
 
   const signin = (uid, nickname) => {
 
-    setNum(() => ({uid, nickname}))
+    setAccount(() => ({uid, nickname}))
   }
 
   return (
