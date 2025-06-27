@@ -4,7 +4,7 @@ export const TestContext = createContext()
 
 function TestContextWrapper({children}) {
 
-  const [account, setAccount]  = useState({uid:"", nickname:""})
+  const [account, setAccount]  = useState({uid:"USER00", nickname:""})
 
   const signin = (uid, nickname) => {
 

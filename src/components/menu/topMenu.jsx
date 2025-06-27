@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { NavLink } from "react-router";
+import { TestContext } from "../../store/testContext";
 
 function TopMenuComponent() {
 
+    const {account} = useContext(TestContext)
 
     return ( 
 
@@ -9,6 +12,7 @@ function TopMenuComponent() {
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-white text-xl font-bold">로고</div>
           <div className="space-x-6 hidden md:flex">
+            <div className="text-white">{account.uid}</div>
             <NavLink to="/" className="text-white">Main</NavLink>
             <NavLink to="/about" className="text-white">About</NavLink>
             <NavLink to="/todo" className="text-white">Todo</NavLink>
