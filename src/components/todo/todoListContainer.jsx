@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useSearchParams } from "react-router";
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router";
 import { getTodoList } from "../../apis/todoApi";
 
 
@@ -9,21 +9,47 @@ function TodoListContainer() {
 
     const page = searchParam.get("page") ||'1'
 
-    console.log("page", page)
+    const [todos, setTodos] = useState([])
+    const [fetching, setFetching] = useState(false)
 
     useEffect(() => {
+        setFetching(true)
         getTodoList(page).then((result) => {
+            setFetching(false)
             console.log(result);
+            setTodos(() => result)
         })
     }, [page])
+
+    const navigate = useNavigate()
+
+    const handleClickPage = (pageNum) => {
+
+        navigate({pathname:"/todo/list", search:`?page=${pageNum}`})
+
+    }
 
 
     return ( 
         <div>
             <div>Todo List Container</div>
-            <ul>
 
+            {fetching && <div className="bg-amber-600 h-10 ">Todo List Loading..............</div>}
+
+            <ul>
+                {todos.map(todo => <li key={todo.id}> {todo.id} ------ {todo.title} </li>)}
             </ul>
+
+            <div>
+                <ul className="flex m-3 p-3">
+                    <li className="p-2 m-2 " onClick={() => handleClickPage(1)}>1</li>
+                    <li className="p-2 m-2 " onClick={() => handleClickPage(2)}>2</li>
+                    <li className="p-2 m-2 " onClick={() => handleClickPage(3)}>3</li>
+                    <li className="p-2 m-2 " onClick={() => handleClickPage(4)}>4</li>
+                    <li className="p-2 m-2 " onClick={() => handleClickPage(5)}>5</li>
+
+                </ul>
+            </div>
         </div>
      );
 }
